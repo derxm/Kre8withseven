@@ -1,0 +1,237 @@
+/* ============================================================
+   GLOBAL CSS — Kre8withseven Portfolio
+   ============================================================ */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* ── CSS Custom Properties ─────────────────────────────────── */
+:root {
+  /* ── Colours — brand palette ──────────────────────────── */
+  --bg-main:        #050309;
+  --bg-secondary:   #141019;
+  --bg-card:        #100D15;
+  --accent:         #8B2CF5;
+  --accent-glow:    #7200FF;
+  --accent-light:   #C4A7FF;
+  --accent-dim:     rgba(139,44,245,0.14);
+  --accent-border:  rgba(196,167,255,0.28);
+  --text-main:      #FFFFFF;
+  --text-secondary: #A7A1B2;
+  --text-muted:     #6B6478;
+  --border:         #30243D;
+  --border-hover:   rgba(139,44,245,0.55);
+
+  /* Typography */
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-accent:  'Caveat', cursive;
+
+  /* Spacing */
+  --section-py: clamp(5rem, 10vw, 8rem);
+  --container:  1240px;
+  --gap:        1.5rem;
+  --radius:     8px;
+  --radius-lg:  14px;
+
+  /* Transitions */
+  --transition: 0.25s ease;
+  --transition-slow: 0.45s ease;
+}
+
+/* ── Reset & Base ───────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-main);
+  background:
+    radial-gradient(ellipse at 50% -22%, rgba(114,0,255,0.12), transparent 42%),
+    var(--bg-main);
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ── Typography ─────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text-main);
+  letter-spacing: 0;
+}
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ── Layout Helpers ─────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 2.5rem);
+}
+
+.section {
+  padding-block: var(--section-py);
+  position: relative;
+}
+
+.section-heading {
+  font-size: 2.5rem;
+  line-height: 1.08;
+}
+
+.section-sub {
+  max-width: 620px;
+  margin-top: 0.8rem;
+  font-size: 1rem;
+}
+
+/* ── Section Label ──────────────────────────────────────────── */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin-bottom: 1rem;
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* ── Buttons ────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0;
+  transition: var(--transition);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #6B1DD4;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(114,0,255,0.4);
+}
+
+.btn-outline {
+  border: 1.5px solid var(--accent-border);
+  color: var(--accent-light);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  color: var(--text-secondary);
+  border: 1.5px solid var(--border);
+}
+
+.btn-ghost:hover {
+  color: var(--text-main);
+  border-color: var(--border-hover);
+  background: var(--accent-dim);
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-main); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+/* ── Focus Visible ──────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── Reduced Motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .section-heading {
+    font-size: 2rem;
+  }
+}
+
+/* ── Accent Font (Caveat) ───────────────────────────────────── */
+/* Use sparingly: blockquotes, signatures, handwritten highlights */
+blockquote,
+.accent-text {
+  font-family: var(--font-accent);
+}
